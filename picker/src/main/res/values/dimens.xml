@@ -1,0 +1,12 @@
+<resources>
+    <!--TimeWheel-->
+    <!-- 顶部按钮栏高度 -->
+    <dimen name="picker_top_bar_height">44dp</dimen>
+    <!-- 顶部按钮paddingLeft -->
+    <dimen name="picker_top_bar_padding_left">10dp</dimen>
+    <!-- 顶部按钮padding_right -->
+    <dimen name="picker_top_bar_padding_right">30dp</dimen>
+    <!-- 顶部按钮文字大小 -->
+    <dimen name="picker_top_bar_btn_text_size">20sp</dimen>
+    <dimen name="picker_top_bar_title_text_size">21sp</dimen>
+</resources>
