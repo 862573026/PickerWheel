@@ -115,6 +115,7 @@ public class WheelView extends View {
 
     public WheelView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         textColorOut = ContextCompat.getColor(context, R.color.picker_wheel_text_color_out);
         textColorCenter = ContextCompat.getColor(context, R.color.picker_wheel_text_color_center);
         dividerColor = ContextCompat.getColor(context, R.color.picker_wheel_text_color_divider);

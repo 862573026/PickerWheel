@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 import wheel.pick.sl.picker.R;
 import wheel.pick.sl.picker.listener.OnDismissListener;
@@ -63,7 +66,7 @@ public class BasePickerView
 
 	/**
 	 * show的时候调用
-	 * 
+	 *
 	 * @param view
 	 *            这个View
 	 */
@@ -78,16 +81,34 @@ public class BasePickerView
 	 */
 	public void show()
 	{
-		if (isShowing())
-		{
-			return;
+		if(judgeTimeInAccept()){
+			if (isShowing() )
+			{
+				return;
+			}
+			onAttached(rootView);
+		}else{
+			Toast.makeText(context, context.getString(R.string.picker_overtime),Toast.LENGTH_SHORT).show();
 		}
-		onAttached(rootView);
+	}
+
+	private boolean judgeTimeInAccept(){
+		Calendar calendar = Calendar.getInstance();
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH);
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		int hours = calendar.get(Calendar.HOUR_OF_DAY);
+		int minute = calendar.get(Calendar.MINUTE);
+
+		if(hours > WheelTime.endHour){
+			return  false;
+		}
+		return true;
 	}
 
 	/**
 	 * 检测该View是不是已经添加到根视图
-	 * 
+	 *
 	 * @return 如果视图已经存在该View返回true
 	 */
 	public boolean isShowing()

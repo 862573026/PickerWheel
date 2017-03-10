@@ -21,6 +21,8 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         ALL, YEAR_MONTH_DAY, HOURS_MINS, MONTH_DAY_HOUR_MIN, YEAR_MONTH
     }// 四种选择模式，年月日时分，年月日，时分，月日时分
 
+    private Context context;
+
     WheelTime wheelTime;
     private View btnSubmit, btnCancel;
     private TextView tvTitle;
@@ -30,6 +32,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
 
     public TimePickerView(Context context, Type type) {
         super(context);
+        this.context = context;
 
         LayoutInflater.from(context).inflate(R.layout.layout_picker_time, contentContainer);
         // -----确定和取消按钮
@@ -65,8 +68,12 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int hours = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
+
         wheelTime.setPicker(year, month, day, hours, minute);
         show();
+
+
     }
 
     private void initWheelTime() {
@@ -78,8 +85,10 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int hours = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
         wheelTime.setPicker(year, month, day, hours, minute);
     }
+
 
     /**
      * 设置可以选择的时间范围 年份
@@ -122,6 +131,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int hours = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
         wheelTime.setPicker(year, month, day, hours, minute);
     }
 

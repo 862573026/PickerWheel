@@ -38,7 +38,7 @@ public class WheelTime {
 
     private int startHour = 0;
     private int startMin = 0;
-    private int endHour = 23;
+    public static int endHour = 23;
     private int endMin = 59;
 
     public WheelTime(View view) {
@@ -66,8 +66,8 @@ public class WheelTime {
      * 设置 初始选中的时间 和空间初始化
      */
     public void setPicker(int year, int month, int day, int h, int m) {
-
         // 添加大小月月份并将其转换为list,方便之后的判断
+
         String[] months_big =
                 {"1", "3", "5", "7", "8", "10", "12"};
         String[] months_little =
@@ -110,8 +110,8 @@ public class WheelTime {
         wv_hours = (WheelView) view.findViewById(R.id.hour);
         wv_hours.setAdapter(new NumericWheelAdapter(startHour, endHour, "%02d"));
         wv_hours.setLabel(context.getString(R.string.picker_hours));// 添加文字
-        wv_hours.setCurrentItem(h - startHour);// 初始化时显示的数据
 
+        wv_hours.setCurrentItem(h - startHour);// 初始化时显示的数据
 
         wv_mins = (WheelView) view.findViewById(R.id.min);
         wv_mins.setAdapter(new NumericWheelAdapter(0, 59, "%02d"));
@@ -186,11 +186,10 @@ public class WheelTime {
                 if (hour_num == startHour) { //为选择开始的小时
                     wv_mins.setAdapter(new NumericWheelAdapter(startMin, 59, "%02d"));
                     maxItem = 60 - startMin;
-                   int curItem =  wv_mins.getCurrentItem();
+                    int curItem =  wv_mins.getCurrentItem();
                     if (curItem <= maxItem) {
                         wv_mins.setCurrentItem(0);
                     }
-
                 } else if (hour_num == endHour) { //为结束的小时
                     wv_mins.setAdapter(new NumericWheelAdapter(0, endMin, "%02d"));
                     maxItem = endMin;
@@ -242,8 +241,8 @@ public class WheelTime {
         wv_year.setTextSize(textSize);
         wv_hours.setTextSize(textSize);
         wv_mins.setTextSize(textSize);
-
     }
+
 
     /**
      * 设置是否循环滚动

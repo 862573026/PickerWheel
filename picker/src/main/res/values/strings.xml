@@ -9,4 +9,6 @@
     <string name="picker_hours">时</string>
     <string name="picker_minutes">分</string>
     <string name="picker_seconds">秒</string>
+
+    <string name="picker_overtime">当前时间已超过可选时间</string>
 </resources>
